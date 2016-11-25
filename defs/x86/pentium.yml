@@ -1,0 +1,9 @@
+name         : Pentium
+description  : Instructions added with Pentium
+instructions :
+    - CPUID
+    - CMPXCHG8B
+    - RDMSR
+    - RDTSC
+    - RSM
+    - WRMSR

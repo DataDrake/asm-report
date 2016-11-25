@@ -1,0 +1,4 @@
+name         : 80287
+description  : Floating Point Instructions added with 80287
+instructions :
+    - FSETPM

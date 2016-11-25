@@ -1,0 +1,15 @@
+name         : 80387
+description  : Floating Point Instructions added with 80387
+instructions :
+    - FCOS
+    - FLDENVD
+    - FSAVED
+    - FSTENVD
+    - FPREM1
+    - FRSTORD
+    - FSIN
+    - FSINCOS
+    - FSTENVD
+    - FUCOM
+    - FUCOMP
+    - FUCOMPP

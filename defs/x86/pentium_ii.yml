@@ -1,0 +1,5 @@
+name         : Pentium II
+description  : Instructions added with Pentium II
+instructions :
+    - SYSENTER
+    - SYSEXIT

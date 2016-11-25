@@ -1,0 +1,12 @@
+name         : AMD-V
+description  : AMD Virtualization Extensions
+instructions :
+    - CLGI
+    - INVLPGA
+    - MOVCRn
+    - SKINIT
+    - STGI
+    - VMLOAD
+    - VMMCALL
+    - VMRUN
+    - VMSAVE

@@ -1,0 +1,12 @@
+name         : TBM
+description  : Trailing Bit Manipulation
+instructions :
+    - BLCFILL
+    - BLCI
+    - BLCIC
+    - BLCMASK
+    - BLCS
+    - BLSFILL
+    - BLSIC
+    - T1MSKC
+    - TZMSK

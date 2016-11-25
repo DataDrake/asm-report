@@ -1,0 +1,13 @@
+name         : Intel VT-x
+description  : Intel Virtualization Extensions
+instructions :
+    - VMPTRLD
+    - VMPTRST
+    - VMCLEAR
+    - VMREAD
+    - VMWRITE
+    - VMCALL
+    - VMLAUNCH
+    - VMRESUME
+    - VMXOFF
+    - VMXON

@@ -1,0 +1,9 @@
+name         : BMI1
+description  : Bit Manipulation Instruction Set 1
+instructions :
+    - ANDN
+    - BEXTR
+    - BLSI
+    - BLSMSK
+    - BLSR
+    - TZCNT

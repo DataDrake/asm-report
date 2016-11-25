@@ -1,0 +1,17 @@
+name         : SSE3
+description  : Streaming SIMD Extensions v3
+instructions :
+    - ADDSUBPD
+    - ADDSUBPS
+    - FISTTP
+    - HADDPF
+    - HADDPS
+    - HSUBPD
+    - HSUBPS
+    - LDDQU
+    - MONITOR
+    - MOVDDUP
+    - MOVDQU
+    - MOVSHDUP
+    - MOVSLDUP
+    - MWAIT

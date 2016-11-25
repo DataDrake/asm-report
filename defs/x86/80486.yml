@@ -1,0 +1,9 @@
+name         : 80486
+description  : Instructions added with 80486
+instructions :
+    - BSWAP
+    - CMPXGHG
+    - INVD
+    - INVLPG
+    - WBINVD
+    - XADD

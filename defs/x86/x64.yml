@@ -1,0 +1,17 @@
+name         : x64
+description  : 64-bit version of the x86 instruction set
+instructions :
+    - CDQE
+    - CQO
+    - CMPSQ
+    - CMPXCHG16B
+    - IRETQ
+    - JRCXZ
+    - LODSQ
+    - MOVSXD
+    - POPFQ
+    - PUSHFQ
+    - RDTSCP
+    - SCASQ
+    - STOSQ
+    - SWAPGS

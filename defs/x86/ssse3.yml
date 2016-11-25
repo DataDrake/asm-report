@@ -1,0 +1,19 @@
+name         : SSSE3
+description  : Supplemental Streaming SIMD Extensions v3
+instructions :
+    - PABSB
+    - PABSD
+    - PABSW
+    - PALIGNR
+    - PHADDD
+    - PHADDSW
+    - PHADDW
+    - PHSUBD
+    - PHSUBSW
+    - PHSUBW
+    - PMADDUBSW
+    - PMULHRSW
+    - PSHUFB
+    - PSIGNB
+    - PSIGND
+    - PSIGNW

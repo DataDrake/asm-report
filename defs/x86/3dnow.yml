@@ -1,0 +1,25 @@
+name         : 3DNow!
+description  : Instructions added with AMD K6-2
+instructions :
+    - FEMMS
+    - PAVGUSB
+    - PF2ID
+    - PFACC
+    - PFADD
+    - PFCMPEQ
+    - PFCMPGE
+    - PFCMPGT
+    - PFMAX
+    - PFMIN
+    - PFMUL
+    - PFRCP
+    - PFRCPIT1
+    - PFRCPIT2
+    - PFRSQIT1
+    - PFRSQRT
+    - PFSUB
+    - PFSUBR
+    - PI2FD
+    - PMULHRW
+    - PREFETCH
+    - PREFETCHW

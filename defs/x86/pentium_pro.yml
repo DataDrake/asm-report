@@ -1,0 +1,47 @@
+name         : Pentium Pro
+description  : Instructions added with Pentium Pro
+instructions :
+    - CMOVA
+    - CMOVAE
+    - CMOVB
+    - CMOVBE
+    - CMOVC
+    - CMOVE
+    - CMOVG
+    - CMOVGE
+    - CMOVL
+    - CMOVLE
+    - CMOVNA
+    - CMOVNAE
+    - CMOVNB
+    - CMOVNBE
+    - CMOVNC
+    - CMOVNE
+    - CMOVNG
+    - CMOVNGE
+    - CMOVNL
+    - CMOVNLE
+    - CMOVNO
+    - CMOVNP
+    - CMOVNS
+    - CMOVNZ
+    - CMOVO
+    - CMOVP
+    - CMOVPE
+    - CMOVPO
+    - CMOVS
+    - CMOVZ
+    - FCMOV
+    - FCMOVB
+    - FCMOVBE
+    - FCMOVE
+    - FCMOVNB
+    - FCMOVNBE
+    - FCMOVNE
+    - FCMOVNU
+    - FCMOVU
+    - FCOMI
+    - FCOMIP
+    - FUCOMI
+    - FUCOMIP
+    - UD2

@@ -1,0 +1,11 @@
+name         : BMI2
+description  : Bit Manipulation Instruction Set 2
+instructions :
+    - BZHI
+    - MULX
+    - PDEP
+    - PEXT
+    - RORX
+    - SARX
+    - SHRX
+    - SHLX

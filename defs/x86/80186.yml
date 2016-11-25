@@ -1,0 +1,10 @@
+name         : 80186
+description  : Instructions added with 80186/80188
+instructions :
+    - BOUND
+    - ENTER
+    - INS
+    - LEAVE
+    - OUTS
+    - POPA
+    - PUSHA

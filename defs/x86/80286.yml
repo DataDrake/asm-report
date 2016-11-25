@@ -1,0 +1,20 @@
+name         : 80286
+description  : Instructions added with 80286
+instructions :
+    - ARPL
+    - CLTS
+    - LAR
+    - LGDT
+    - LIDT
+    - LLDT
+    - LMSW
+    - LOADALL
+    - LSL
+    - LTR
+    - SGDT
+    - SIDT
+    - SLDT
+    - SMSW
+    - STR
+    - VERR
+    - VERW

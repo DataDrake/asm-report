@@ -1,0 +1,5 @@
+name         : ABM
+description  : Advanced Bit Manipulation
+instructions :
+    - LZCNT
+    - POPCNT

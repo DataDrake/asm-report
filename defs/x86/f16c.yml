@@ -1,0 +1,5 @@
+name         : F16C
+description  : Support for converting between IEEE754 Half and Single-Precision
+instructions :
+    - VCVTPH2PS
+    - VCVTPS2PH

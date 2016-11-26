@@ -1,0 +1,10 @@
+name         : FMA4
+description  : Fused Mulitply-Add with 4 Operands
+instructions :
+    - VFMADDPDx
+    - VFMADDPDy
+    - VFMADDPSx
+    - VFMADDPSy
+    - VFMADDSD
+    - VFMADDSS
+

@@ -1,0 +1,10 @@
+name         : AES-NI
+description  : Advanced Encryption Standard New Instructions
+instructions :
+    - AESENC
+    - AESENCLAST
+    - AESDEC
+    - AESDECLAST
+    - AESKEYGENASSIST
+    - AESIMC
+    - PCLMULQDQ

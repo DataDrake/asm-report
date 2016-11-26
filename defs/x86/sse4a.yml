@@ -1,0 +1,7 @@
+name         : SSE4a
+description  : Streaming SIMD Extensions v4a
+instructions :
+    - EXTRQ
+    - INSERTQ
+    - MOVNTSD
+    - MOVNTSS

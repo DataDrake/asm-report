@@ -1,0 +1,22 @@
+name         : FMA3
+description  : Fused Mulitply-Add with 3 Operands
+instructions :
+    - VFMADD132PDy
+    - VFMADD132PSy
+    - VFMADD132PDx
+    - VFMADD132PSx
+    - VFMADD132SD
+    - VFMADD132SS
+    - VFMADD213PDy
+    - VFMADD213PSy
+    - VFMADD213PDx
+    - VFMADD213PSx
+    - VFMADD213SD
+    - VFMADD213SS
+    - VFMADD231PDy
+    - VFMADD231PSy
+    - VFMADD231PDx
+    - VFMADD231PSx
+    - VFMADD231SD
+    - VFMADD231SS
+

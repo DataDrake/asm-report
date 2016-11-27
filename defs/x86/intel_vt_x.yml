@@ -1,6 +1,7 @@
-name         : Intel VT-x
-description  : Intel Virtualization Extensions
-instructions :
+name            : Intel VT-x
+description     : Intel Virtualization Extensions
+vendor-specific : Intel
+instructions    :
     - VMPTRLD
     - VMPTRST
     - VMCLEAR

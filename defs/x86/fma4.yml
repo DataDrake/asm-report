@@ -1,6 +1,7 @@
-name         : FMA4
-description  : Fused Mulitply-Add with 4 Operands
-instructions :
+name            : FMA4
+description     : Fused Mulitply-Add with 4 Operands
+vendor-specific : AMD
+instructions    :
     - VFMADDPDx
     - VFMADDPDy
     - VFMADDPSx

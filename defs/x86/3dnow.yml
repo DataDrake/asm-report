@@ -1,6 +1,7 @@
-name         : 3DNow!
-description  : Instructions added with AMD K6-2
-instructions :
+name            : 3DNow!
+description     : Instructions added with AMD K6-2
+vendor-specific : AMD
+instructions    :
     - FEMMS
     - PAVGUSB
     - PF2ID

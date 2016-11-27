@@ -1,6 +1,7 @@
-name         : AMD-V
-description  : AMD Virtualization Extensions
-instructions :
+name            : AMD-V
+description     : AMD Virtualization Extensions
+vendor-specific : AMD
+instructions    :
     - CLGI
     - INVLPGA
     - MOVCRn

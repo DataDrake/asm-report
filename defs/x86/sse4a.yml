@@ -1,6 +1,7 @@
-name         : SSE4a
-description  : Streaming SIMD Extensions v4a
-instructions :
+name            : SSE4a
+description     : Streaming SIMD Extensions v4a
+vendor-specific : AMD
+instructions    :
     - EXTRQ
     - INSERTQ
     - MOVNTSD

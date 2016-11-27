@@ -1,6 +1,7 @@
-name         : 3DNow!+
-description  : Instructions added with AMD K6-2+ / Athlon / Geode GX
-instructions :
+name            : 3DNow!+
+description     : Instructions added with AMD K6-2+ / Athlon / Geode GX
+vendor-specific : AMD
+instructions    :
     - PF2IW
     - PFNACC
     - PFPNACC

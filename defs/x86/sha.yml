@@ -1,6 +1,7 @@
-name         : SHA
-description  : SSE-based extensions for the SHA hash family
-instructions :
+name            : SHA
+description     : SSE-based extensions for the SHA hash family
+vendor-specific : Intel
+instructions    :
     - SHA1MSG1
     - SHA1MSG2
     - SHA1NEXTE

@@ -1,0 +1,10 @@
+name         : SHA
+description  : SSE-based extensions for the SHA hash family
+instructions :
+    - SHA1MSG1
+    - SHA1MSG2
+    - SHA1NEXTE
+    - SHA1RNDS4
+    - SHA256MSG1
+    - SHA256MSG2
+    - SHA256RNDS2

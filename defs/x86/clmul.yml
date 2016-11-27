@@ -1,0 +1,8 @@
+name         : CLMUL
+description  : Carry-less Multiplication Instructions
+instructions :
+    - PCLMULQDQ
+    - PCLMULHQLQDQ
+    - PCLMULHQHQDQ
+    - PCLMULLQLQDQ
+    - PCLMULLQHQDQ

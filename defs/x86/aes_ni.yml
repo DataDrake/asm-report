@@ -7,4 +7,3 @@ instructions :
     - AESDECLAST
     - AESKEYGENASSIST
     - AESIMC
-    - PCLMULQDQ

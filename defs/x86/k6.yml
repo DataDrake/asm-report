@@ -1,5 +1,6 @@
 name         : K6
 description  : Instructions added with AMD K6
+inherits     : Pentium II
 instructions :
     - SYSCALL
     - SYSRET

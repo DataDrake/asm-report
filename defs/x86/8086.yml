@@ -1,5 +1,20 @@
 name         : 8086
 description  : Original Instructions for 8086/8088
+registers    :
+    - A[HLX]
+    - B[HLX]
+    - BP
+    - C[HLX]
+    - CS
+    - D[HLX]
+    - DI
+    - DS
+    - ES
+    - FLAGS
+    - IP
+    - SI
+    - SP
+    - SS
 instructions :
     - AAA
     - AAD
@@ -15,8 +30,7 @@ instructions :
     - CLI
     - CMC
     - CMP
-    - CMPSB
-    - CMPSW
+    - CMPS[BW]
     - CWD
     - DAA
     - DAS
@@ -67,16 +81,14 @@ instructions :
     - LEA
     - LES
     - LOCK
-    - LODSB
-    - LODSW
+    - LODS[BW]
     - LOOP
     - LOOPE
     - LOOPNE
     - LOOPNZ
     - LOOPZ
     - MOV
-    - MOVSB
-    - MOVSW
+    - MOVS[BW]
     - MUL
     - NEG
     - NOP
@@ -103,15 +115,13 @@ instructions :
     - SAL
     - SAR
     - SBB
-    - SCASB
-    - SCASW
+    - SCAS[BW]
     - SHL
     - SHR
     - STC
     - STD
     - STI
-    - STOSB
-    - STOSW
+    - STOS[BW]
     - SUB
     - TEST
     - WAIT

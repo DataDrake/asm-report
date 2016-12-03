@@ -1,5 +1,21 @@
 name         : x64
 description  : 64-bit version of the x86 instruction set
+inherits     : K6
+registers    :
+    - CR8
+    - R[8-9]
+    - R1[0-5]
+    - RAX
+    - RBP
+    - RBX
+    - RCX
+    - RDI
+    - RDX
+    - RIP
+    - RSI
+    - RSP
+    - XMM[89]
+    - XMM1[0-5]
 instructions :
     - CDQE
     - CQO

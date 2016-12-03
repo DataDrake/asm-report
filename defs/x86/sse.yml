@@ -1,5 +1,8 @@
 name         : SSE
 description  : Streaming SIMD Extensions
+registers    :
+    - MXCSR
+    - XMM[0-7]
 instructions :
     - ADDPS
     - ADDSS

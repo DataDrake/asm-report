@@ -1,5 +1,8 @@
 name         : Pentium II
 description  : Instructions added with Pentium II
+inherits     :
+    - Pentium MMX
+    - Pentium Pro
 instructions :
     - SYSENTER
     - SYSEXIT

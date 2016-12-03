@@ -1,5 +1,22 @@
 name         : 80386
 description  : Instructions added with 80386
+inherits     : 80286
+registers    :
+    - CR[0-4]
+    - DR[0-3]
+    - DR[67]
+    - EAX
+    - EBP
+    - EBX
+    - ECX
+    - EDI
+    - EDX
+    - EFLAGS
+    - EIP
+    - ESI
+    - ESP
+    - FS
+    - GS
 instructions :
     - BSF
     - BSR

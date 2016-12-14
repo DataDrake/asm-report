@@ -2,9 +2,17 @@ name         : 80386
 description  : Instructions added with 80386
 inherits     : 80286
 registers    :
-    - CR[0-4]
-    - DR[0-3]
-    - DR[67]
+    - CR0
+    - CR1
+    - CR2
+    - CR3
+    - CR4
+    - DR0
+    - DR1
+    - DR2
+    - DR3
+    - DR6
+    - DR7
     - EAX
     - EBP
     - EBX
@@ -17,17 +25,30 @@ registers    :
     - ESP
     - FS
     - GS
-    - T[67]
+    - T6
+    - T7
 instructions :
     - ADDL
     - ANDL
     - BOUNDL
     - BSF
     - BSR
-    - BT[BWL]?
-    - BTC[BWL]?
-    - BTR[BWL]?
-    - BTS[BWL]?
+    - BT
+    - BTB
+    - BTL
+    - BTW
+    - BTC
+    - BTCB
+    - BTCL
+    - BTCW
+    - BTR
+    - BTRB
+    - BTRL
+    - BTRW
+    - BTS
+    - BTSB
+    - BTSL
+    - BTSW
     - CALLL
     - CDQ
     - CMPL

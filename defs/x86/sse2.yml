@@ -67,7 +67,26 @@ instructions :
     - MULSD
     - ORPD
     - PAUSE
-    - PADD[BLQW][BLQW]?
+    - PADDB
+    - PADDBB
+    - PADDBL
+    - PADDBQ
+    - PADDBW
+    - PADDL
+    - PADDLB
+    - PADDLL
+    - PADDLQ
+    - PADDLW
+    - PADDQ
+    - PADDQB
+    - PADDQL
+    - PADDQQ
+    - PADDQW
+    - PADDW
+    - PADDWB
+    - PADDWL
+    - PADDWQ
+    - PADDWW
     - PMULUDQ
     - PSHUFD
     - PSHUFHW

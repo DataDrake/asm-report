@@ -14,7 +14,7 @@ instructions    :
     - VFMSUBPS
     - VFMSUBSD
     - VFMSUBSS
-    - VFNMADDkPD
+    - VFNMADDPD
     - VFNMADDPS
     - VFNMADDSD
     - VFNMADDSS

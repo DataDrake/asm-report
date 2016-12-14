@@ -3,7 +3,11 @@ description  : Instructions added with Pentium
 inherits     : 80486
 instructions :
     - CPUID
-    - CMPXCHG8B[BLQW]?
+    - CMPXCHG8B
+    - CMPXCHG8BB
+    - CMPXCHG8BL
+    - CMPXCHG8BQ
+    - CMPXCHG8BW
     - RDMSR
     - RDTSC
     - RSM

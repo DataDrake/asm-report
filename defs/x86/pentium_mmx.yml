@@ -2,7 +2,14 @@ name         : Pentium MMX
 description  : Instructions added with Pentium MMX
 inherits     : Pentium
 registers    :
-    - MMX[0-7]
+    - MMX0
+    - MMX1
+    - MMX2
+    - MMX3
+    - MMX4
+    - MMX5
+    - MMX6
+    - MMX7
 instructions :
     - EMMS
     - MOVD

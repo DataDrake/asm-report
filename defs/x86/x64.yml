@@ -3,8 +3,14 @@ description  : 64-bit version of the x86 instruction set
 inherits     : K6
 registers    :
     - CR8
-    - R[8-9]
-    - R1[0-5]
+    - R8
+    - R9
+    - R10
+    - R11
+    - R12
+    - R13
+    - R14
+    - R15
     - RAX
     - RBP
     - RBX
@@ -14,18 +20,32 @@ registers    :
     - RIP
     - RSI
     - RSP
-    - XMM[89]
-    - XMM1[0-5]
+    - XMM8
+    - XMM9
+    - XMM10
+    - XMM11
+    - XMM12
+    - XMM13
+    - XMM14
+    - XMM15
 instructions :
     - ADDQ
     - ANDQ
     - BOUNDQ
-    - BT[CRS]?Q
+    - BTCQ
+    - BTQ
+    - BTRQ
+    - BTSQ
     - CALLQ
     - CDQE
     - CQO
-    - CMPS?Q
-    - CMPXCHG16B[BLQW]?
+    - CMPSQ
+    - CMPQ
+    - CMPXCHG16B
+    - CMPXCHG16BB
+    - CMPXCHG16BL
+    - CMPXCHG16BQ
+    - CMPXCHG16BW
     - ENTERQ
     - FBLDQ
     - IRETQ

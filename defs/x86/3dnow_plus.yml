@@ -2,10 +2,10 @@ name            : 3DNow!+
 description     : Instructions added with AMD K6-2+ / Athlon / Geode GX
 vendor-specific : AMD
 instructions    :
-    - PF2IW[BLQW]?
-    - PFNACC[BLQW]?
-    - PFPNACC[BLQW]?
+    - PF2IW
+    - PFNACC
+    - PFPNACC
     - PFRCPV
     - PFRSQRTV
-    - PI2FW[BLQW]?
-    - PSWAPD[BLQW]?
+    - PI2FW
+    - PSWAPD

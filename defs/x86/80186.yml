@@ -5,7 +5,9 @@ instructions :
     - BOUND
     - BOUNDB
     - BOUNDW
-    - ENTER[BW]?
+    - ENTER
+    - ENTERB
+    - ENTERW
     - INS
     - LEAVE
     - OUTS

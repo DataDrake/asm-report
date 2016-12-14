@@ -1,5 +1,7 @@
 name         : SSE4.2
 description  : Streaming SIMD Extensions v4.2
+inherits     :
+    - SSE4.1
 instructions :
     - CRC32
     - PCMPESTRI

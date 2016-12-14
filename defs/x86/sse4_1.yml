@@ -1,5 +1,7 @@
 name         : SSE4.1
 description  : Streaming SIMD Extensions v4.1
+inherits     :
+    - SSSE3
 instructions :
     - BLENDPD
     - BLENDPS

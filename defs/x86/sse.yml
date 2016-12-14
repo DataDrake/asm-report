@@ -1,5 +1,7 @@
 name         : SSE
 description  : Streaming SIMD Extensions
+inherits     :
+    - MMX
 registers    :
     - MXCSR
     - XMM0

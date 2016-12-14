@@ -1,5 +1,7 @@
 name         : SSE3
 description  : Streaming SIMD Extensions v3
+inherits     :
+    - SSE2
 instructions :
     - ADDSUBPD
     - ADDSUBPS

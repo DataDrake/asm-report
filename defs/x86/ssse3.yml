@@ -1,5 +1,7 @@
 name         : SSSE3
 description  : Supplemental Streaming SIMD Extensions v3
+inherits     :
+    - SSE3
 instructions :
     - PABSB
     - PABSD

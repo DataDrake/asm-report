@@ -8,8 +8,24 @@ instructions :
     - ADDSS
     - ANDPS
     - ANDNPS
+    - CMPEQPS
+    - CMPEQSS
+    - CMPLEPS
+    - CMPLESS
+    - CMPLTPS
+    - CMPLTSS
+    - CMPNEQPS
+    - CMPNEQSS
+    - CMPNLEPS
+    - CMPNLESS
+    - CMPNLTPS
+    - CMPNLTSS
+    - CMPORDPS
+    - CMPORDSS
     - CMPPS
     - CMPSS
+    - CMPUNORDPS
+    - CMPUNORDSS
     - COMISS
     - CVTPI2PS
     - CVTPS2PI

@@ -6,8 +6,24 @@ instructions :
     - ANDNPD
     - ANDPD
     - CLFLUSH
+    - CMPEQPD
+    - CMPEQSD
+    - CMPLEPD
+    - CMPLESD
+    - CMPLTPD
+    - CMPLTSD
+    - CMPNEQPD
+    - CMPNEQSD
+    - CMPNLEPD
+    - CMPNLESD
+    - CMPNLTPD
+    - CMPNLTSD
+    - CMPORDPD
+    - CMPORDSD
     - CMPPD
     - CMPSD
+    - CMPUNORDPD
+    - CMPUNORDSD
     - COMISD
     - CVTDQ2PD
     - CVTDQ2PS

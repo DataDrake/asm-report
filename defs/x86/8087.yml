@@ -7,14 +7,14 @@ instructions :
     - FABS
     - FADD
     - FADDP
-    - FBLD
-    - FBSTP
+    - FBLD[BW]?
+    - FBSTP[BW]?
     - FCHS
     - FCLEX
     - FCOM
     - FCOMP
     - FCOMPP
-    - PDECSTP
+    - FDECSTP
     - FDISI
     - FDIV
     - FDIVP
@@ -22,7 +22,7 @@ instructions :
     - FDIVRP
     - FENI
     - FFREE
-    - FIADD
+    - FIADD[BW]
     - FICOM
     - FICOMP
     - FIDIV

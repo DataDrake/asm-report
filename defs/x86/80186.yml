@@ -3,7 +3,9 @@ description  : Instructions added with 80186/80188
 inherits     : 8086
 instructions :
     - BOUND
-    - ENTER
+    - BOUNDB
+    - BOUNDW
+    - ENTER[BW]?
     - INS
     - LEAVE
     - OUTS

@@ -22,14 +22,18 @@ instructions :
     - AAS
     - ADC
     - ADD
+    - ADDB
+    - ADDW
     - AND
-    - CALL
+    - ANDB
+    - ANDW
+    - CALL[BW]?
     - CBW
     - CLC
     - CLD
     - CLI
     - CMC
-    - CMP
+    - CMP[BW]?
     - CMPS[BW]
     - CWD
     - DAA

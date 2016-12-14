@@ -1,6 +1,8 @@
 name         : 80387
 description  : Floating Point Instructions added with 80387
 instructions :
+    - FBLDL
+    - FBSTPQ
     - FCOS
     - FLDENVD
     - FSAVED

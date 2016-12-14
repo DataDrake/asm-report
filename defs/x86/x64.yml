@@ -17,10 +17,17 @@ registers    :
     - XMM[89]
     - XMM1[0-5]
 instructions :
+    - ADDQ
+    - ANDQ
+    - BOUNDQ
+    - BT[CRS]?Q
+    - CALLQ
     - CDQE
     - CQO
-    - CMPSQ
-    - CMPXCHG16B
+    - CMPS?Q
+    - CMPXCHG16B[BLQW]?
+    - ENTERQ
+    - FBLDQ
     - IRETQ
     - JRCXZ
     - LODSQ

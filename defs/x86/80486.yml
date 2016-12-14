@@ -2,7 +2,7 @@ name         : 80486
 description  : Instructions added with 80486
 inherits     : 80386
 registers    :
-    - TR[3-7]
+    - TR[3-5]
 instructions :
     - BSWAP
     - CMPXGHG

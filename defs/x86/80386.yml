@@ -17,16 +17,23 @@ registers    :
     - ESP
     - FS
     - GS
+    - T[67]
 instructions :
+    - ADDL
+    - ANDL
+    - BOUNDL
     - BSF
     - BSR
-    - BT
-    - BTC
-    - BTR
-    - BTS
+    - BT[BWL]?
+    - BTC[BWL]?
+    - BTR[BWL]?
+    - BTS[BWL]?
+    - CALLL
     - CDQ
+    - CMPL
     - CMPSD
     - CWDE
+    - ENTERL
     - INSD
     - IRETD
     - IRETF

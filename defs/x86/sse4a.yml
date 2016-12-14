@@ -4,5 +4,5 @@ vendor-specific : AMD
 instructions    :
     - EXTRQ
     - INSERTQ
-    - MOVNTSD
-    - MOVNTSS
+    - MOVNTSD[BLQW]?
+    - MOVNTSS[BLQW]?

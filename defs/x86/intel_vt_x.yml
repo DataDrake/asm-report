@@ -2,6 +2,8 @@ name            : Intel VT-x
 description     : Intel Virtualization Extensions
 vendor-specific : Intel
 instructions    :
+    - INVEPT
+    - INVVPID
     - VMPTRLD
     - VMPTRST
     - VMCLEAR

@@ -51,7 +51,7 @@ instructions :
     - MULSD
     - ORPD
     - PAUSE
-    - PADDQ
+    - PADD[BLQW][BLQW]?
     - PMULUDQ
     - PSHUFD
     - PSHUFHW
@@ -59,8 +59,8 @@ instructions :
     - PSLLDQ
     - PSRLDQ
     - PSUBQ
-    - PUNCHKHQDQ
-    - PUNCHKLQDQ
+    - PUNPCKHQDQ
+    - PUNPCKLQDQ
     - SHUFPD
     - SQRTPD
     - SQRTSD

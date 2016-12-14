@@ -14,7 +14,7 @@ instructions :
     - VPCOMUD
     - VPCOMUQ
     - VPCOMUW
-    - VPERM
+    - VPPERM
     - VPPERMIL2PD
     - VPPERMIL2PS
     - VPHADDBD

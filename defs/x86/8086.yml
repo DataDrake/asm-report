@@ -49,6 +49,7 @@ instructions :
     - INT
     - INTO
     - IRET
+    - IRETW
     - JA
     - JAE
     - JB

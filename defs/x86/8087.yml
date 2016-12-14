@@ -61,6 +61,7 @@ instructions :
     - FNSTSW
     - FPATAN
     - FPREM
+    - FPTAN
     - FRNDINT
     - FRSTOR
     - FRSTORW
@@ -80,6 +81,7 @@ instructions :
     - FSUBRP
     - FTST
     - FWAIT
+    - FXAM
     - FXCH
     - FXTRACT
     - FYL2X

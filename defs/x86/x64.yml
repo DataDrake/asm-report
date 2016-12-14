@@ -31,6 +31,7 @@ instructions :
     - IRETQ
     - JRCXZ
     - LODSQ
+    - MOVSQ
     - MOVSXD
     - POPFQ
     - PUSHFQ

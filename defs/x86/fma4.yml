@@ -2,10 +2,23 @@ name            : FMA4
 description     : Fused Mulitply-Add with 4 Operands
 vendor-specific : AMD
 instructions    :
-    - VFMADDPDx
-    - VFMADDPDy
-    - VFMADDPSx
-    - VFMADDPSy
+    - VFMADDkPD
+    - VFMADDPS
     - VFMADDSD
     - VFMADDSS
-
+    - VFMADDSUBPD
+    - VFMADDSUBPS
+    - VFMSUBADDPD
+    - VFMSUBADDPS
+    - VFMSUBPD
+    - VFMSUBPS
+    - VFMSUBSD
+    - VFMSUBSS
+    - VFNMADDkPD
+    - VFNMADDPS
+    - VFNMADDSD
+    - VFNMADDSS
+    - VFNMSUBPD
+    - VFNMSUBPS
+    - VFNMSUBSD
+    - VFNMSUBSS

@@ -30,6 +30,7 @@ instructions :
     - PMADDWD
     - PMULHW
     - PMULLQ
+    - PMULLW
     - PSLLW
     - PSLLD
     - PSLLQ
@@ -48,6 +49,9 @@ instructions :
     - PUNPCKHBW
     - PUNPCKHBD
     - PUNPCKHBQ
+    - PUNPCKHDQ
+    - PUNPCKHWD
+    - PUNPCKHWQ
     - PUNPCKLBW
     - PUNPCKLBD
     - PUNPCKLBQ

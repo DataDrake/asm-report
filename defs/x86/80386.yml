@@ -34,6 +34,7 @@ instructions :
     - CMPSD
     - CWDE
     - ENTERL
+    - IBTS
     - INSD
     - IRETD
     - IRETF
@@ -52,11 +53,13 @@ instructions :
     - LOOPNEW
     - LOOPNZW
     - LOOPZW
+    - MONITOR
     - MOVSD
     - MOVSX
     - MOVZX
     - OUTSD
     - POPAD
+    - POPAL
     - POPFD
     - PUSHAD
     - PUSHFD
@@ -94,3 +97,4 @@ instructions :
     - SHLD
     - SHRD
     - STOSD
+    - XBTS

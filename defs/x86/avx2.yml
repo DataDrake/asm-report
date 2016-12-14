@@ -1,0 +1,34 @@
+name         : AVX2
+description  : Advanced Vector eXtensions v2
+inherits     :
+    - AVX
+    - FMA3
+instructions :
+    - VBROADCASTB
+    - VBROADCASTI128
+    - VEXTRACTI128
+    - VGATHERDPD
+    - VGATHERDPS
+    - VGATHERQPD
+    - VGATHERQPS
+    - VINSERTI128
+    - VPBLENDD
+    - VPBROADCASTD
+    - VPBROADCASTQ
+    - VPBROADCASTW
+    - VPERM2I128
+    - VPERMD
+    - VPERMQ
+    - VPERMPD
+    - VPERMPS
+    - VPGATHERDD
+    - VPGATHERDQ
+    - VPGATHERQD
+    - VPGATHERQQ
+    - VPMASKMOVD
+    - VPMASKMOVQ
+    - VPSLLVD
+    - VPSLLVQ
+    - VPSRAVD
+    - VPSRLVD
+    - VPSRLVQ

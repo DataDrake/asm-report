@@ -1,0 +1,18 @@
+=h= Bucket: "elf"
+    (*) Key:   Name
+    (*) Value: *Arch
+=h= Bucket: "arch"
+    (*) Key:   *Arch
+    (*) Value: ArchDef
+=h= Bucket: "reg"
+    =h= Bucket: *Arch
+        (*) Key:   RegisterName
+        (*) Value: *ISA
+=h= Bucket: "isa"
+    (*) Key:   *ISA
+    (*) Value: ISADef
+=h= Bucket: "inst"
+    =h= Bucket: *Arch
+        (*) Key:   InstructionName
+        (*) Value: *ISA
+

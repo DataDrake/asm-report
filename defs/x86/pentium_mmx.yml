@@ -1,6 +1,7 @@
 name         : MMX
 description  : Instructions added with Pentium MMX
-inherits     : Pentium
+inherits     : 
+    - Pentium
 registers    :
     - MMX0
     - MMX1

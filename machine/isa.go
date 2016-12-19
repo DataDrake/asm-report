@@ -9,36 +9,19 @@
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implie$
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
 
-package main
+package machine
 
-import (
-	"github.com/DataDrake/asm-report/cmd/update"
-	"os"
-)
-
-func usage() {
-	print("USAGE: asm-report <CMD> [OPTIONS] [ARGS]\n")
-}
-
-func main() {
-
-	if len(os.Args) < 2 {
-		usage()
-		os.Exit(1)
-	}
-
-	switch os.Args[1] {
-	case "update", "up":
-		update.Cmd(os.Args[2:])
-	default:
-		usage()
-		os.Exit(1)
-	}
-
-	os.Exit(0)
+// ISAYml is a YAML representation of an Instruction Set Architecture (ISA)
+type ISAYml struct {
+	Name         string   `yaml:"name"`
+	Description  string   `yaml:"description"`
+	Vendor       string   `yaml:"vendor-specific"`
+	Inherits     []string `yaml:"inherits"`
+	Registers    []string `yaml:"registers"`
+	Instructions []string `yaml:"instructions"`
 }

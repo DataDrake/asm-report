@@ -17,8 +17,11 @@
 package machine
 
 import (
+	"bytes"
 	"debug/elf"
+	"encoding/gob"
 	"github.com/boltdb/bolt"
+	"gopkg.in/yaml.v2"
 	"sync/atomic"
 )
 
@@ -30,9 +33,10 @@ type ArchYml struct {
 	MType elf.Machine `yaml:"type"`
 }
 
-// ReadArchYml deserializes an ArchYml from an io.Reader
-func ReadArchYml(r *io.Reader) (ay *ArchYml, err error) {
-
+// ReadArchYml deserializes an ArchYml from a []byte
+func ReadArchYml(raw []byte) (ay *ArchYml, err error) {
+	ay = &ArchYml{}
+	err = yaml.Unmarshall(raw, ay)
 }
 
 // ToArch converts an ArchYml to an Arch and assigns an ID
@@ -64,7 +68,12 @@ func ReadArch(tx *bolt.Tx, aID int32) (a *Arch, err error) {
 	if err != nil {
 		return
 	}
-	//TODO: deserialize info
+
+	dec := gob.NewDecoder(a)
+	err = dec.Decode(&as)
+	if err != nil {
+		return
+	}
 
 	a.id = aID
 	b, err := tx.Bucket([]byte{"insts"})
@@ -88,7 +97,13 @@ func ReadArch(tx *bolt.Tx, aID int32) (a *Arch, err error) {
 
 // Put serializes an Arch into a BoltDB and creates its Buckets
 func (a *Arch) Put() error {
-	//TODO: serialize info
+
+	var buf bytes.Buffer
+	enc := gob.NewEncoder(&buf)
+	err = enc.Encode(a)
+	if err != nil {
+		return
+	}
 
 	b, err := a.tx.Bucket([]byte{"insts"})
 	if err != nil {

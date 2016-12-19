@@ -32,18 +32,20 @@ setup:
     @$(call task,Setting up symlinks...)
     @if [ ! -d $(PROJROOT)/$(PROJNAME) ]; then ln -s $(shell pwd) $(PROJROOT)/$(PROJNAME); fi
     @$(call task,Getting dependencies...)
+    @go get github.com/boltdb/bolt
     @go get github.com/DataDrake/waterlog
+    @go get gopkg.in/yaml.v2
     @$(call pass,SETUP)
 
 validate: golint-setup
     @$(call stage,FORMAT)
-    @$(GOCC) fmt -x ./...
+    @$(GOCC) fmt -x $(shell go list ./... | grep -v /build/)
     @$(call pass,FORMAT)
     @$(call stage,VET)
-    @$(GOCC) vet -x ./...
+    @$(GOCC) vet -x $(shell go list ./... | grep -v /build/)
     @$(call pass,VET)
     @$(call stage,LINT)
-    @$(GOBIN)/golint -set_exit_status ./...
+    @find ./ -mindepth 1 -maxdepth 1 -type d | grep -vP "build|.git" | xargs -n1 $(GOBIN)/golint -set_exit_status
     @$(call pass,LINT)
 
 golint-setup:

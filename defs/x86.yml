@@ -1,2 +1,6 @@
 name        : x86
 description : The x86 Instruction Set used by Intel, AMD, etc.
+types       :
+    - 3
+    - 6
+    - 62

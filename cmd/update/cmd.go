@@ -17,55 +17,106 @@
 package update
 
 import (
-    "github.com/DataDrake/asm-report/machine"
-    "io/ioutil"
-    "os"
+	"github.com/DataDrake/asm-report/machine"
+	"github.com/boltdb/bolt"
+	"io/ioutil"
+	"os"
 )
 
 func usage() {
 	print("USAGE: asm-report update [OPTIONS]\n")
 }
 
-func readDefs(d *os.File) (ays []*machine.ArchYml, isas []*machine.ISAYml, err error) {
-    fs, err := d.Readdir(-1)
-    if err != nil {
-        return
-    }
+func updateISAs(arch *machine.Arch) (err error) {
+	d, err := os.Open("./defs/" + arch.Name)
+	if err != nil {
+		return
+	}
+	defer d.Close()
+	isafs, err := d.Readdir(-1)
+	if err != nil {
+		return
+	}
+	for _, isaf := range isafs {
+		if !isaf.IsDir() {
+			println(isaf.Name())
+		}
+	}
+	return
+}
 
-    ays  = make([]*machine.ArchYml,0)
-    archfs := make([]os.FileInfo,0)
-    isas = make([]*machine.ISAYml,0)
-    isadirs := make([]os.FileInfo,0)
+func updateArch(db *bolt.DB, aname string) (err error) {
+	af, err := os.Open("./defs/" + aname + ".yml")
+	if err != nil {
+		return
+	}
+	defer af.Close()
+	ayraw, err := ioutil.ReadAll(af)
+	if err != nil {
+		return
+	}
+	ay, err := machine.ReadArchYml(ayraw)
+	if err != nil {
+		return
+	}
+	err = db.Update(func(tx *bolt.Tx) error {
+		a := ay.ToArch(tx)
+		err := a.Put()
+		if err != nil {
+			return err
+		}
+		err = updateISAs(a)
+		return err
+	})
+	return
+}
 
-    for _,f := range fs {
-        if f.IsDir() {
-            isadirs = append(isadirs, f)
-        } else {
-            archfs = append(archfs, f)
-        }
-    }
+func updateDefs(d *os.File) (err error) {
+	fs, err := d.Readdir(-1)
+	if err != nil {
+		return
+	}
+	db, err := bolt.Open("/tmp/test2.db", 0600, nil)
+	if err != nil {
+		return
+	}
+	defer db.Close()
+	err = db.Update(func(tx *bolt.Tx) error {
+		var e error
+		_, e = tx.CreateBucket([]byte("arch"))
+		if e != nil {
+			return e
+		}
+		_, e = tx.CreateBucket([]byte("elf"))
+		if e != nil {
+			return e
+		}
+		_, e = tx.CreateBucket([]byte("insts"))
+		if e != nil {
+			return e
+		}
+		_, e = tx.CreateBucket([]byte("isas"))
+		if e != nil {
+			return e
+		}
+		_, e = tx.CreateBucket([]byte("regs"))
+		return e
+	})
+	if err != nil {
+		return
+	}
 
-    for _, archf := range archfs {
-        af, e := os.Open("./defs/" + archf.Name())
-        defer af.Close()
-        if e != nil {
-            err = e
-            return
-        }
-        ayraw, e := ioutil.ReadAll(af)
-        if e != nil {
-            err = e
-            return
-        }
-        ay, e := machine.ReadArchYml(ayraw)
-        if e != nil {
-            err = e
-            return
-        }
-        ays = append(ays, ay)
-    }
-    println(len(ays))
-    return
+	for _, f := range fs {
+		if f.IsDir() {
+			e := updateArch(db, f.Name())
+			if e != nil {
+				err = e
+				return
+			}
+		}
+	}
+	err = os.Rename("/tmp/test2.db", "/tmp/test.db")
+	return
 }
 
 // Cmd handles the "update" subcommand
@@ -75,10 +126,13 @@ func Cmd(args []string) {
 		os.Exit(1)
 	}
 
-    d, err := os.Open("./defs")
-    if err != nil {
-        panic(err.Error())
-    }
-    defer d.Close()
-    _, _, err = readDefs(d)
+	d, err := os.Open("./defs")
+	if err != nil {
+		panic(err.Error())
+	}
+	defer d.Close()
+	err = updateDefs(d)
+	if err != nil {
+		panic(err.Error())
+	}
 }

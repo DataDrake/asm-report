@@ -26,8 +26,26 @@ import (
 func usage() {
 	print("USAGE: asm-report update [OPTIONS]\n")
 }
+func updateISA(tx *bolt.Tx, arch *machine.Arch, iname string) (err error) {
+	ifile, err := os.Open("./defs/" + arch.Name + "/" + iname)
+	if err != nil {
+		return
+	}
+	defer ifile.Close()
+	iraw, err := ioutil.ReadAll(ifile)
+	if err != nil {
+		return
+	}
+	iy, err := machine.ReadISAYml(iraw)
+	if err != nil {
+		return
+	}
+	i := iy.ToISA(tx, arch)
+	err = i.Put()
+	return
+}
 
-func updateISAs(arch *machine.Arch) (err error) {
+func updateISAs(tx *bolt.Tx, arch *machine.Arch) (err error) {
 	d, err := os.Open("./defs/" + arch.Name)
 	if err != nil {
 		return
@@ -39,7 +57,7 @@ func updateISAs(arch *machine.Arch) (err error) {
 	}
 	for _, isaf := range isafs {
 		if !isaf.IsDir() {
-			println(isaf.Name())
+			err = updateISA(tx, arch, isaf.Name())
 		}
 	}
 	return
@@ -65,7 +83,7 @@ func updateArch(db *bolt.DB, aname string) (err error) {
 		if err != nil {
 			return err
 		}
-		err = updateISAs(a)
+		err = updateISAs(tx, a)
 		return err
 	})
 	return

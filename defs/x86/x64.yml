@@ -1,6 +1,7 @@
 name         : x64
 description  : 64-bit version of the x86 instruction set
-inherits     : K6
+inherits     :
+    - K6
 registers    :
     - CR8
     - R8

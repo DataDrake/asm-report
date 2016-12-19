@@ -1,6 +1,7 @@
 name         : 80386
 description  : Instructions added with 80386
-inherits     : 80286
+inherits     : 
+    - 80286
 registers    :
     - CR0
     - CR1

@@ -1,6 +1,7 @@
 name         : 80186
 description  : Instructions added with 80186/80188
-inherits     : 8086
+inherits     : 
+    - 8086
 instructions :
     - BOUND
     - BOUNDB

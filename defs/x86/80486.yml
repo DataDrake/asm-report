@@ -1,6 +1,7 @@
 name         : 80486
 description  : Instructions added with 80486
-inherits     : 80386
+inherits     :
+    - 80386
 registers    :
     - TR3
     - TR4

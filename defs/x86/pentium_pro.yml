@@ -1,6 +1,7 @@
 name         : Pentium Pro
 description  : Instructions added with Pentium Pro
-inherits     : Pentium
+inherits     : 
+    - Pentium
 instructions :
     - CMOVA
     - CMOVAE

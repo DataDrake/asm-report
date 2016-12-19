@@ -1,6 +1,7 @@
 name         : 80286
 description  : Instructions added with 80286
-inherits     : 80186
+inherits     : 
+    - 80186
 instructions :
     - ARPL
     - CLTS

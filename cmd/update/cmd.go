@@ -26,6 +26,7 @@ import (
 func usage() {
 	print("USAGE: asm-report update [OPTIONS]\n")
 }
+
 func updateISA(tx *bolt.Tx, arch *machine.Arch, iname string) {
 	ifile, err := os.Open("./defs/" + arch.Name + "/" + iname)
 	if err != nil {

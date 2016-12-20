@@ -34,6 +34,7 @@ setup:
     @$(call task,Getting dependencies...)
     @go get github.com/boltdb/bolt
     @go get github.com/DataDrake/waterlog
+    @go get github.com/pkg/profile
     @go get gopkg.in/yaml.v2
     @$(call pass,SETUP)
 

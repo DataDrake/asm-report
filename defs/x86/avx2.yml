@@ -13,6 +13,7 @@ instructions :
     - VGATHERQPS
     - VINSERTI128
     - VPBLENDD
+    - VPBROADCASTB
     - VPBROADCASTD
     - VPBROADCASTQ
     - VPBROADCASTW

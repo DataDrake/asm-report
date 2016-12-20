@@ -38,6 +38,9 @@ instructions :
     - CVTSD2SI
     - CVTSD2SS
     - CVTSI2SD
+    - CVTSI2SDL
+    - CVTSI2SDQ
+    - CVTSI2SSL
     - CVTSS2SD
     - CVTTPD2DQ
     - CVTTPD2PI

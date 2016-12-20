@@ -75,9 +75,9 @@ instructions :
     - PMINUB
     - PMOVMSKB
     - PMULHUW
-    - PREFETCH0
-    - PREFETCH1
-    - PREFETCH2
+    - PREFETCHT0
+    - PREFETCHT1
+    - PREFETCHT2
     - PREFETCHNTA
     - PSADBW
     - PSHUFW

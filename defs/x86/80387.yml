@@ -4,6 +4,9 @@ instructions :
     - FBLDL
     - FBSTPQ
     - FCOS
+    - FILDL
+    - FILDLL
+    - FISTPLL
     - FLDENVD
     - FSAVED
     - FSTENVD

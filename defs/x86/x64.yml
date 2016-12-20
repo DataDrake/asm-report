@@ -5,13 +5,37 @@ inherits     :
 registers    :
     - CR8
     - R8
+    - R8B
+    - R8D
+    - R8W
     - R9
+    - R9B
+    - R9D
+    - R9W
     - R10
+    - R10B
+    - R10D
+    - R10W
     - R11
+    - R11B
+    - R11D
+    - R11W
     - R12
+    - R12B
+    - R12D
+    - R12W
     - R13
+    - R13B
+    - R13D
+    - R13W
     - R14
+    - R14B
+    - R14D
+    - R14W
     - R15
+    - R15B
+    - R15D
+    - R15W
     - RAX
     - RBP
     - RBX
@@ -39,7 +63,8 @@ instructions :
     - BTSQ
     - CALLQ
     - CDQE
-    - CQO
+    - CLTD
+    - CLTQ
     - CMPSQ
     - CMPQ
     - CMPXCHG16B
@@ -47,16 +72,35 @@ instructions :
     - CMPXCHG16BL
     - CMPXCHG16BQ
     - CMPXCHG16BW
+    - CQO
+    - CQTO
+    - DECQ
+    - DIVQ
     - ENTERQ
+    - FADDS
     - FBLDQ
+    - FDIVS
+    - FMULS
+    - IDIVQ
+    - INCQ
     - IRETQ
+    - JMPQ
     - JRCXZ
+    - LEAVEQ
     - LODSQ
+    - MOVABS
+    - MOVSBQ
+    - MOVSLQ
     - MOVSQ
+    - MOVSWQ
     - MOVSXD
     - POPFQ
+    - POPQ
     - PUSHFQ
+    - PUSHQ
     - RDTSCP
+    - RETQ
     - SCASQ
+    - SUBQ
     - STOSQ
     - SWAPGS

@@ -72,7 +72,7 @@ func ReadObjdump(stdout io.Reader) (insts map[string]int64, regs map[string]int6
 
 // RunObjdump executes objdump, getting the counts of all registers and instructions used in the specified file
 func RunObjdump(fpath string) (insts map[string]int64, regs map[string]int64, err error) {
-	cmd := exec.Command("objdump", "--no-show-raw-insn", fpath)
+	cmd := exec.Command("objdump", "--no-show-raw-insn", "-d", fpath)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		return

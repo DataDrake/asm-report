@@ -29,6 +29,7 @@ registers    :
     - T6
     - T7
 instructions :
+    - ADCL
     - ADDL
     - ANDL
     - BOUNDL
@@ -55,8 +56,13 @@ instructions :
     - CMPL
     - CMPSD
     - CWDE
+    - CWTL
+    - DECL
+    - DIVL
     - ENTERL
     - IBTS
+    - IDIVL
+    - INCL
     - INSD
     - IRETD
     - IRETF
@@ -76,15 +82,25 @@ instructions :
     - LOOPNZW
     - LOOPZW
     - MONITOR
+    - MOVL
+    - MOVSBL
     - MOVSD
+    - MOVSWL
     - MOVSX
+    - MOVZBL
+    - MOVZWL
     - MOVZX
+    - NOPL
+    - NOTL
+    - ORL
     - OUTSD
     - POPAD
     - POPAL
     - POPFD
     - PUSHAD
     - PUSHFD
+    - SARL
+    - SBBL
     - SCASD
     - SETA
     - SETAE
@@ -117,6 +133,11 @@ instructions :
     - SETS
     - SETZ
     - SHLD
+    - SHLL
     - SHRD
+    - SHRL
     - STOSD
+    - SUBL
+    - TESTL
     - XBTS
+    - XORL

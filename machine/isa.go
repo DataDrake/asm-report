@@ -77,6 +77,31 @@ func (i *ISAYml) ToISA(tx *bolt.Tx, a *Arch) *ISA {
 	return isa
 }
 
+// ReadISA deserializes an ISA from a BoltDB
+func ReadISA(tx *bolt.Tx, id []byte) (isa *ISA, err error) {
+	b := tx.Bucket([]byte("isas"))
+	if b == nil {
+		err = errors.New("Bucket 'isas' does not exist")
+		return
+	}
+
+	isaRaw := b.Get(id)
+	if isaRaw == nil {
+		err = errors.New("ISA not found")
+		return
+	}
+
+	bbuf := bytes.NewBuffer(isaRaw)
+	dec := gob.NewDecoder(bbuf)
+	err = dec.Decode(&isa)
+	if err != nil {
+		return
+	}
+
+	isa.id = id
+	return
+}
+
 // Put saves an ISA to a BoltDB
 func (i *ISA) Put() (err error) {
 

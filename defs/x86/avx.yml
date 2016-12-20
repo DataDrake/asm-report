@@ -24,7 +24,7 @@ instructions :
     - VADDPD
     - VADDPS
     - VADDSD
-    - VADDSD
+    - VADDSS
     - VADDSUBPD
     - VADDSUBPS
     - VANDNPD
@@ -255,6 +255,7 @@ instructions :
     - VORPD
     - VORPS
     - VPABSB
+    - VPABSD
     - VPABSQ
     - VPABSW
     - VPACKSSDW
@@ -371,6 +372,7 @@ instructions :
     - VPSRLD
     - VPSRLDQ
     - VPSRLQ
+    - VPSRLW
     - VPTEST
     - VPSUBB
     - VPSUBD
@@ -379,6 +381,7 @@ instructions :
     - VPSUBSW
     - VPSUBUSB
     - VPSUBUSW
+    - VPSUBW
     - VPUNPCKHBW
     - VPUNPCKHDQ
     - VPUNPCKHQDQ

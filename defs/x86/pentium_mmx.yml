@@ -3,14 +3,14 @@ description  : Instructions added with Pentium MMX
 inherits     : 
     - Pentium
 registers    :
-    - MMX0
-    - MMX1
-    - MMX2
-    - MMX3
-    - MMX4
-    - MMX5
-    - MMX6
-    - MMX7
+    - MM0
+    - MM1
+    - MM2
+    - MM3
+    - MM4
+    - MM5
+    - MM6
+    - MM7
 instructions :
     - EMMS
     - MOVD
@@ -63,4 +63,6 @@ instructions :
     - PUNPCKLBW
     - PUNPCKLBD
     - PUNPCKLBQ
+    - PUNPCKLDQ
+    - PUNPCKLWD
     - RDPMC

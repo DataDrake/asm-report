@@ -24,6 +24,7 @@ import (
 	"errors"
 	"github.com/boltdb/bolt"
 	"gopkg.in/yaml.v2"
+	"strings"
 	"sync/atomic"
 )
 
@@ -191,6 +192,7 @@ func (a *Arch) Put() (err error) {
 
 // AddInst adds an instruction to an Arch
 func (a *Arch) AddInst(iname string, isaID []byte) (err error) {
+	iname = strings.ToLower(iname)
 	err = a.insts.Put([]byte(iname), isaID)
 	return
 }
@@ -212,14 +214,15 @@ func (a *Arch) NInst() int {
 
 // AddReg adds a register to an Arch
 func (a *Arch) AddReg(rname string, isaID []byte) (err error) {
+	rname = strings.ToLower(rname)
 	err = a.regs.Put([]byte(rname), isaID)
 	return
 }
 
 // RegToISA retrieves the ID for a Register's ISA
 func (a *Arch) RegToISA(rname string) (id []byte, err error) {
-	v := a.regs.Get([]byte(rname))
-	if v == nil {
+	id = a.regs.Get([]byte(rname))
+	if id == nil {
 		err = errors.New("Register not found")
 		return
 	}

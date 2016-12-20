@@ -18,13 +18,59 @@ package inspect
 
 import (
 	"debug/elf"
+	"fmt"
 	"github.com/DataDrake/asm-report/machine"
 	"github.com/boltdb/bolt"
 	"os"
+	"sort"
 )
 
 func usage() {
 	print("USAGE: asm-report inspect [OPTIONS] FILE...\n")
+}
+
+func getISAs(tx *bolt.Tx, arch *machine.Arch, insts, regs map[string]int64) (isas map[string]int64, err error) {
+	isas = make(map[string]int64)
+	for k, v := range insts {
+		isaID, e := arch.InstToISA(k)
+		if e != nil {
+			println(k)
+			continue
+		}
+		isa, e := machine.ReadISA(tx, isaID)
+		if e != nil {
+			println(k)
+			err = e
+			return
+		}
+		isas[isa.Name] += v
+	}
+
+	for k, v := range regs {
+		isaID, e := arch.RegToISA(k)
+		if e != nil {
+			println(k)
+			continue
+		}
+		isa, e := machine.ReadISA(tx, isaID)
+		if e != nil {
+			err = e
+			return
+		}
+		isas[isa.Name] += v
+	}
+	return
+}
+
+func printMap(m map[string]int64) {
+	keys := make([]string, 0)
+	for key := range m {
+		keys = append(keys, key)
+	}
+	sort.Strings(keys)
+	for _, key := range keys {
+		fmt.Printf("    - %-12s : %d\n", key, m[key])
+	}
 }
 
 // Cmd handles the "inspect" subcommand
@@ -49,10 +95,24 @@ func Cmd(args []string) {
 		if err != nil {
 			panic(err.Error())
 		}
-		println(arch.Name)
-		return nil
+		fmt.Printf("%s : %s\n", "Architecture", arch.Name)
+		insts, regs, err := machine.RunObjdump(args[0])
+		if err != nil {
+			return err
+		}
+		fmt.Printf("%s : %d\n", "Instructions", len(insts))
+		printMap(insts)
+		fmt.Printf("%s : %d\n", "Registers", len(regs))
+		printMap(regs)
+		isas, err := getISAs(tx, arch, insts, regs)
+		if err != nil {
+			return err
+		}
+		fmt.Printf("%s : %d\n", "ISAS", len(isas))
+		printMap(isas)
+		return err
 	})
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
 }

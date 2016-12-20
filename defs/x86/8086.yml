@@ -7,6 +7,7 @@ registers    :
     - BH
     - BL
     - BP
+    - BPL
     - BX
     - CH
     - CL
@@ -14,6 +15,7 @@ registers    :
     - CX
     - DH
     - DI
+    - DIL
     - DL
     - DS
     - DX
@@ -21,6 +23,7 @@ registers    :
     - FLAGS
     - IP
     - SI
+    - SIL
     - SP
     - SS
 instructions :
@@ -52,7 +55,10 @@ instructions :
     - CWD
     - DAA
     - DAS
+    - DATA16
     - DEC
+    - DECB
+    - DECW
     - DIV
     - ESC
     - HLT
@@ -60,6 +66,7 @@ instructions :
     - IMUL
     - IN
     - INC
+    - INCW
     - INT
     - INTO
     - IRET
@@ -72,6 +79,7 @@ instructions :
     - JCXZ
     - JE
     - JG
+    - JGE
     - JL
     - JLE
     - JMP
@@ -108,13 +116,20 @@ instructions :
     - LOOPNZ
     - LOOPZ
     - MOV
+    - MOVB
     - MOVSB
+    - MOVSBW
     - MOVSW
+    - MOVW
     - MUL
+    - MULB
     - NEG
     - NOP
+    - NOPW
     - NOT
+    - NOTB
     - OR
+    - ORB
     - OUT
     - POP
     - POPF
@@ -139,6 +154,7 @@ instructions :
     - SCASB
     - SCASW
     - SHL
+    - SHLW
     - SHR
     - STC
     - STD
@@ -146,7 +162,9 @@ instructions :
     - STOSB
     - STOSW
     - SUB
+    - SUBW
     - TEST
+    - TESTB
     - WAIT
     - XCHG
     - XLAT

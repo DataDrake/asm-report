@@ -36,6 +36,7 @@ func usage() {
 	print("USAGE: asm-report info [OPTIONS]\n")
 }
 
+// Cmd handles the "info" subcommand
 func Cmd(args []string) {
 	db, err := bolt.Open("/tmp/test.db", 0666, &bolt.Options{ReadOnly: true})
 	if err != nil {

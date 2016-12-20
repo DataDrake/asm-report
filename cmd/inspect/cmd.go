@@ -27,6 +27,7 @@ func usage() {
 	print("USAGE: asm-report inspect [OPTIONS] FILE...\n")
 }
 
+// Cmd handles the "inspect" subcommand
 func Cmd(args []string) {
 	db, err := bolt.Open("/tmp/test.db", 0666, &bolt.Options{ReadOnly: true})
 	if err != nil {

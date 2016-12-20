@@ -46,7 +46,7 @@ validate: golint-setup
     @$(GOCC) vet -x $(shell go list ./... | grep -v /build/)
     @$(call pass,VET)
     @$(call stage,LINT)
-    @find ./ -mindepth 1 -maxdepth 1 -type d | grep -vP "build|.git" | xargs -n1 $(GOBIN)/golint -set_exit_status
+    @find ./ -mindepth 1 -type d | grep -vP "build|.git" | xargs -n1 $(GOBIN)/golint -set_exit_status
     @$(call pass,LINT)
 
 golint-setup:

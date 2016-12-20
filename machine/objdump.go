@@ -17,70 +17,74 @@
 package machine
 
 import (
-    "bufio"
-    "io"
-    "os/exec"
-    "regexp"
+	"bufio"
+	"io"
+	"os/exec"
+	"regexp"
 )
 
 var instMatch = regexp.MustCompile("^\\s+\\w+:\\s+(\\w+)")
 var regMatch = regexp.MustCompile("%(\\w+)")
 
-func ParseLine(line []byte) (inst string, regs[]string, ok bool) {
-    ok = false
-    regs = make([]string, 0)
-    l := string(line[:])
-    // find instruction
-    m := instMatch.FindStringSubmatch(l)
-    if len(m) != 2 {
-        return
-    }
-    ok = true
-    inst = m[1]
-    ms := regMatch.FindAllStringSubmatch(l,-1)
-    for _,m := range ms {
-        regs = append(regs, m[1])
-    }
-    return
-}
-func ReadObjdump(stdout io.Reader) (insts map[string]int64, regs map[string]int64, err error) {
-    insts = make(map[string]int64)
-    regs = make(map[string]int64)
-    r := bufio.NewReaderSize(stdout,100)
-    for {
-        line, e := r.ReadBytes('\n')
-        if e != nil {
-            if e == io.EOF {
-                break
-            }
-            err = e
-            return
-        }
-        i, rs, ok := ParseLine(line)
-        if ok {
-            insts[i]++
-            for _,r := range rs {
-                regs[r]++
-            }
-        }
-    }
-    return
+// ParseLine gets the instruction and registers from a single line of objdump output
+func ParseLine(line []byte) (inst string, regs []string, ok bool) {
+	ok = false
+	regs = make([]string, 0)
+	l := string(line[:])
+	// find instruction
+	m := instMatch.FindStringSubmatch(l)
+	if len(m) != 2 {
+		return
+	}
+	ok = true
+	inst = m[1]
+	ms := regMatch.FindAllStringSubmatch(l, -1)
+	for _, m := range ms {
+		regs = append(regs, m[1])
+	}
+	return
 }
 
+// ReadObjdump gets the counts of all registers and instructions used in a binary file
+func ReadObjdump(stdout io.Reader) (insts map[string]int64, regs map[string]int64, err error) {
+	insts = make(map[string]int64)
+	regs = make(map[string]int64)
+	r := bufio.NewReaderSize(stdout, 100)
+	for {
+		line, e := r.ReadBytes('\n')
+		if e != nil {
+			if e == io.EOF {
+				break
+			}
+			err = e
+			return
+		}
+		i, rs, ok := ParseLine(line)
+		if ok {
+			insts[i]++
+			for _, r := range rs {
+				regs[r]++
+			}
+		}
+	}
+	return
+}
+
+// RunObjdump executes objdump, getting the counts of all registers and instructions used in the specified file
 func RunObjdump(fpath string) (insts map[string]int64, regs map[string]int64, err error) {
-    cmd := exec.Command("objdump", "--no-show-raw-insn", fpath)
-    stdout, err := cmd.StdoutPipe()
-    if err != nil {
-        return
-    }
-    err = cmd.Start();
-    if err != nil {
-        return
-    }
-    insts, regs, err = ReadObjdump(stdout)
-    if err != nil {
-        return
-    }
-    err = cmd.Wait()
-    return
+	cmd := exec.Command("objdump", "--no-show-raw-insn", fpath)
+	stdout, err := cmd.StdoutPipe()
+	if err != nil {
+		return
+	}
+	err = cmd.Start()
+	if err != nil {
+		return
+	}
+	insts, regs, err = ReadObjdump(stdout)
+	if err != nil {
+		return
+	}
+	err = cmd.Wait()
+	return
 }

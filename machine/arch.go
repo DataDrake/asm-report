@@ -68,6 +68,23 @@ type Arch struct {
 	mtypes []elf.Machine
 }
 
+// ReadArchElf deserializes an Arch by ELF type from a BoltDB and retrieves its Buckets
+func ReadArchElf(tx *bolt.Tx, mtype elf.Machine) (a *Arch, err error) {
+	b := tx.Bucket([]byte("elf"))
+	if b == nil {
+		panic("Bucket 'elf' does not exist")
+	}
+	buf := bytes.NewBuffer(make([]byte, 0))
+	err = binary.Write(buf, binary.LittleEndian, mtype)
+	if err != nil {
+		panic(err.Error())
+	}
+	mID := buf.Bytes()
+	aID := b.Get(mID)
+	a, err = ReadArch(tx, aID)
+	return
+}
+
 // ReadArch deserializes an Arch from a BoltDB and retrieves its Buckets
 func ReadArch(tx *bolt.Tx, id []byte) (a *Arch, err error) {
 	b := tx.Bucket([]byte("arch"))
@@ -190,7 +207,7 @@ func (a *Arch) InstToISA(iname string) (id []byte, err error) {
 
 // NInst gets the total number of instructions for an Arch
 func (a *Arch) NInst() int {
-    return a.insts.Stats().KeyN
+	return a.insts.Stats().KeyN
 }
 
 // AddReg adds a register to an Arch
@@ -211,5 +228,5 @@ func (a *Arch) RegToISA(rname string) (id []byte, err error) {
 
 // NReg gets the total number of registers for an Arch
 func (a *Arch) NReg() int {
-    return a.regs.Stats().KeyN
+	return a.regs.Stats().KeyN
 }

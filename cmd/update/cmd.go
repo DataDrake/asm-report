@@ -39,7 +39,7 @@ func updateISA(tx *bolt.Tx, arch *machine.Arch, iname string) {
 	}
 	iy, err := machine.ReadISAYml(iraw)
 	if err != nil {
-        println(iname)
+		println(iname)
 		panic(err.Error())
 	}
 	i := iy.ToISA(tx, arch)

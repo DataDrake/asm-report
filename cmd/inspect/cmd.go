@@ -14,26 +14,17 @@
 // limitations under the License.
 //
 
-package info
+package inspect
 
 import (
-	"fmt"
+	"debug/elf"
 	"github.com/DataDrake/asm-report/machine"
 	"github.com/boltdb/bolt"
+	"os"
 )
 
-func printArch(a *machine.Arch, full bool) {
-	if full {
-		fmt.Printf("%-12s : %s\n", "Architecture", a.Name)
-		fmt.Printf("%-12s : %d\n", "Instructions", a.NInst())
-		fmt.Printf("%-12s : %d\n", "Registers", a.NReg())
-	} else {
-		fmt.Printf("    - %s\n", a.Name)
-	}
-}
-
 func usage() {
-	print("USAGE: asm-report info [OPTIONS]\n")
+	print("USAGE: asm-report inspect [OPTIONS] FILE...\n")
 }
 
 func Cmd(args []string) {
@@ -43,24 +34,24 @@ func Cmd(args []string) {
 	}
 	defer db.Close()
 	if len(args) == 0 {
-		fmt.Println("Available architectures:")
+		usage()
+		os.Exit(1)
 	}
-	db.View(func(tx *bolt.Tx) error {
-		b := tx.Bucket([]byte("arch"))
-		c := b.Cursor()
-		for k, _ := c.First(); k != nil; k, _ = c.Next() {
-			a, err := machine.ReadArch(tx, k)
-			if err != nil {
-				return err
-			}
-			if len(args) > 0 {
-				if a.Name == args[0] {
-					printArch(a, true)
-				}
-			} else {
-				printArch(a, false)
-			}
+	f, err := elf.Open(args[0])
+	if err != nil {
+		panic(err.Error())
+	}
+	mtype := f.FileHeader.Machine
+	f.Close()
+	err = db.View(func(tx *bolt.Tx) error {
+		arch, err := machine.ReadArchElf(tx, mtype)
+		if err != nil {
+			panic(err.Error())
 		}
+		println(arch.Name)
 		return nil
 	})
+	if err != nil {
+		panic(err)
+	}
 }

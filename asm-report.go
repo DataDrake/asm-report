@@ -17,6 +17,7 @@
 package main
 
 import (
+	"github.com/DataDrake/asm-report/cmd/info"
 	"github.com/DataDrake/asm-report/cmd/update"
     //"github.com/pkg/profile"
 	"os"
@@ -34,6 +35,8 @@ func main() {
 	}
 
 	switch os.Args[1] {
+    case "info":
+		info.Cmd(os.Args[2:])
 	case "update", "up":
 		update.Cmd(os.Args[2:])
 	default:

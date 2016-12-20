@@ -188,6 +188,11 @@ func (a *Arch) InstToISA(iname string) (id []byte, err error) {
 	return
 }
 
+// NInst gets the total number of instructions for an Arch
+func (a *Arch) NInst() int {
+    return a.insts.Stats().KeyN
+}
+
 // AddReg adds a register to an Arch
 func (a *Arch) AddReg(rname string, isaID []byte) (err error) {
 	err = a.regs.Put([]byte(rname), isaID)
@@ -202,4 +207,9 @@ func (a *Arch) RegToISA(rname string) (id []byte, err error) {
 		return
 	}
 	return
+}
+
+// NReg gets the total number of registers for an Arch
+func (a *Arch) NReg() int {
+    return a.regs.Stats().KeyN
 }

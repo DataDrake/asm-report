@@ -64,10 +64,10 @@ func getISAs(tx *bolt.Tx, arch *machine.Arch, insts, regs map[string]int64) (isa
 
 func printMap(m map[string]int64) {
 	keys := make([]string, len(m))
-    i := 0
+	i := 0
 	for key := range m {
 		keys[i] = key
-        i++
+		i++
 	}
 	sort.Strings(keys)
 	for _, key := range keys {

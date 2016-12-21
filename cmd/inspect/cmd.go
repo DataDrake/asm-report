@@ -63,9 +63,11 @@ func getISAs(tx *bolt.Tx, arch *machine.Arch, insts, regs map[string]int64) (isa
 }
 
 func printMap(m map[string]int64) {
-	keys := make([]string, 0)
+	keys := make([]string, len(m))
+    i := 0
 	for key := range m {
-		keys = append(keys, key)
+		keys[i] = key
+        i++
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
@@ -100,10 +102,10 @@ func Cmd(args []string) {
 		if err != nil {
 			return err
 		}
-		fmt.Printf("%s : %d\n", "Instructions", len(insts))
-		printMap(insts)
-		fmt.Printf("%s : %d\n", "Registers", len(regs))
-		printMap(regs)
+		//fmt.Printf("%s : %d\n", "Instructions", len(insts))
+		//printMap(insts)
+		//fmt.Printf("%s : %d\n", "Registers", len(regs))
+		//printMap(regs)
 		isas, err := getISAs(tx, arch, insts, regs)
 		if err != nil {
 			return err

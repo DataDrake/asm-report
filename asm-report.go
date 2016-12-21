@@ -20,7 +20,7 @@ import (
 	"github.com/DataDrake/asm-report/cmd/info"
 	"github.com/DataDrake/asm-report/cmd/inspect"
 	"github.com/DataDrake/asm-report/cmd/update"
-	//"github.com/pkg/profile"
+	"github.com/pkg/profile"
 	"os"
 )
 
@@ -29,7 +29,7 @@ func usage() {
 }
 
 func main() {
-	//defer profile.Start().Stop()
+	defer profile.Start().Stop()
 	if len(os.Args) < 2 {
 		usage()
 		os.Exit(1)

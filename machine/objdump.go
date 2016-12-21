@@ -20,11 +20,8 @@ import (
 	"bufio"
 	"io"
 	"os/exec"
-	"regexp"
+    "strings"
 )
-
-var instMatch = regexp.MustCompile(":\\s+(\\w+)")
-var regMatch = regexp.MustCompile("%\\w+")
 
 // ReadObjdump gets the counts of all registers and instructions used in a binary file
 func ReadObjdump(stdout io.Reader) (insts map[string]int64, regs map[string]int64, err error) {
@@ -33,7 +30,6 @@ func ReadObjdump(stdout io.Reader) (insts map[string]int64, regs map[string]int6
 	r := bufio.NewReaderSize(stdout, 100)
     var line []byte
 	for {
-		//line, e := r.ReadBytes('\n')
 		line, _, err = r.ReadLine()
 		if err != nil {
 			if err == io.EOF {
@@ -42,14 +38,28 @@ func ReadObjdump(stdout io.Reader) (insts map[string]int64, regs map[string]int6
 			}
 			return
 		}
-       	m := instMatch.FindSubmatch(line)
-        if len(m) != 2 {
+        sl := string(line)
+        if strings.Index(sl," ") != 0 {
             continue
         }
-        insts[string(m[1])]++
-        ms := regMatch.FindAll(line, -1)
-        for _, m := range ms {
-            regs[string(m[1:])]++
+        i := strings.Index(sl,":") + 1
+        inst := strings.TrimSpace(sl[i:])
+        i = strings.IndexAny(inst," \t")
+        if i < 0 {
+           insts[inst]++
+        } else {
+            insts[inst[:i]]++
+        }
+        for i,reg := range strings.Split(sl,"%") {
+            if i < 1 {
+                continue
+            }
+            j := strings.IndexAny(reg,",:)")
+            if j > 0 {
+                regs[reg[:j]]++
+            } else {
+                regs[reg]++
+            }
         }
 	}
 	return

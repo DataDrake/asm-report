@@ -20,14 +20,13 @@ import (
 	"bufio"
 	"io"
 	"os/exec"
-	"strings"
 )
 
 // ReadObjdump gets the counts of all registers and instructions used in a binary file
 func ReadObjdump(stdout io.Reader) (insts map[string]int64, regs map[string]int64, err error) {
 	insts = make(map[string]int64)
 	regs = make(map[string]int64)
-	r := bufio.NewReaderSize(stdout, 100)
+	r := bufio.NewReaderSize(stdout, 1000)
 	var line []byte
 	for {
 		line, _, err = r.ReadLine()
@@ -38,28 +37,64 @@ func ReadObjdump(stdout io.Reader) (insts map[string]int64, regs map[string]int6
 			}
 			return
 		}
-		sl := string(line)
-		if strings.Index(sl, " ") != 0 {
-			continue
-		}
-		i := strings.Index(sl, ":") + 1
-		inst := strings.TrimSpace(sl[i:])
-		i = strings.IndexAny(inst, " \t")
-		if i < 0 {
-			insts[inst]++
-		} else {
-			insts[inst[:i]]++
-		}
-		for i, reg := range strings.Split(sl, "%") {
-			if i < 1 {
-				continue
-			}
-			j := strings.IndexAny(reg, ",:)")
-			if j > 0 {
-				regs[reg[:j]]++
-			} else {
-				regs[reg]++
-			}
+		i := 0
+		for i = 0; i < len(line); i++ {
+            if line[i] == ':' {
+                i++
+                break
+            }
+        }
+        if i == len(line) {
+            continue
+        }
+        for i < len(line) {
+            if line[i] != ' ' || line[i] != '\t' {
+                i++
+                break
+            }
+            i++
+        }
+        if i == len(line) {
+            continue
+        }
+        j := i
+        for j < len(line)-1 {
+            if line[j] == ' ' || line[j] == '\t' {
+                break
+            }
+            j++
+        }
+        if i == j {
+            continue
+        }
+        //println(string(line[i:j]))
+		insts[string(line[i:j])]++
+        i = j
+		for i != len(line) {
+            //println(i)
+            //println(j)
+            for i < len(line) {
+                if line[i] == '%' {
+                    i++
+                    break
+                }
+                i += 1
+            }
+            if i == len(line) {
+                break
+            }
+            j = i
+            for j < len(line) {
+                if (line[j] == ',') || (line[j] == ':') || (line[j] == ')'){
+                    break
+                }
+                j += 1
+            }
+            if j == i {
+                break
+            }
+			regs[string(line[i:j])]++
+            i = j
 		}
 	}
 	return
